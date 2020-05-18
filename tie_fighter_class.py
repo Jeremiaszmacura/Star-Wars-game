@@ -2,6 +2,10 @@ import random
 import pygame
 
 class Tie_fighter:
+    """Klasa wrogich myśliwców."""
+
+    """Metody klasy to: konstruktor, draw_tie_fighter, move_tie_figher, move_limitation.
+    Atrybutami klasy są: tie_fighter_img, tie_fighter_size, speed_x, speed_y, position_x, position_y."""
 
     def __init__(self, speed_x = 2, speed_y = 1, window_width = 800):
         self.tie_fighter_img = pygame.image.load("assets/mysliwiec.png")

@@ -1,6 +1,11 @@
 import pygame
 
 class Player:
+    """Klasa gracza zawiera metody potrzebne do rysowania obiektu gracza, zmiane jego koordynantów, ograniczenie ruchu,
+    kontrole klawiatury (sterowanie)."""
+
+    """Metody tej klasy to: konstruktor, draw_player, move_player, move_limitation,
+    key_control. Atrybuty klasy to: player_img, player_size, position_x, position_y, speed_x, speed_y, acceleration."""
 
     def __init__(self, window_width = 800, window_height = 600):
         self.player_img = pygame.image.load("assets/millennium_falcon.png")
@@ -12,13 +17,16 @@ class Player:
         self.acceleration = 5 #przyspieszenie
 
     def draw_player(self, game_board):
+        """Metoda rysuje obiekt gracza na ekranie."""
         game_board.screen.blit(self.player_img, (self.position_x, self.position_y))
 
     def move_player(self):
+        """Metoda zmienia koordynanty gracza."""
         self.position_x += self.speed_x
         self.position_y += self.speed_y
 
     def move_limitation(self, window_width = 800, window_height = 600):
+        """Metoda ogranicza przestrzeń, po której może się przemieszczać gracz."""
         if self.position_x <= 0:
             self.position_x = 0
         elif self.position_x >= window_width - self.player_size["x"]:
@@ -30,6 +38,7 @@ class Player:
 
     # key control
     def key_control(self, ekran):
+        """Metoda obsługuję sterowani,e przy pomocy klawiatury, obiektem gracza."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 ekran.closing_menu = False

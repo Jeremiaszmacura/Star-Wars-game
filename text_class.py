@@ -1,6 +1,13 @@
 import pygame
 
 class Text:
+    """Klasa napisów na ekranie."""
+
+    """Jest odpowiedzialna za treść, która pojawia się na ekranie startowego menu, na ekranie
+    podczas rozgrywki oraz na ekranie końcowego menu. Metody klasy to: konstruktor, closing_subtitles,
+    scoreAndLifePoints. Atrybutami klasy są: font, text, textRect, font_02, text_02, textRect_02, font_03, text_03,
+    textRect_03, text_04, textRect_04, text_05, textRect_05."""
+
     yellow = (255, 255, 0)
 
     def __init__(self, window_width, window_height, score, life_points, font_size_h1 = 64, font_size_h2 = 32, font_size_h3 = 24):
@@ -30,8 +37,10 @@ class Text:
         self.textRect_05.center = (160, window_height)
 
     def closing_subtitles(self, window_width, window_height):
+        """Metoda przypisuje treść napisom końcowego menu."""
         pass
 
     def scoreAndLifePoints(self, score, life_points):
+        """Metoda przypisuje treść napisom podczas rozgrywki."""
         self.text_04 = self.font_03.render('Wynik: ' + str(score), True, (255, 255, 0))
         self.text_05 = self.font_03.render('Punkty zycia: ' + str(life_points), True, (255, 255, 0))
