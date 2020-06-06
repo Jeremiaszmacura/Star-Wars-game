@@ -42,5 +42,6 @@ class Text:
 
     def score_and_life_points(self, score, life_points):
         """Metoda przypisuje treść napisom podczas rozgrywki."""
-        self.text_04 = self.font_03.render('Wynik: ' + str(score), True, (255, 255, 0))
-        self.text_05 = self.font_03.render('Punkty zycia: ' + str(life_points), True, (255, 255, 0))
+        self.text_04 = self.font_03.render('Wynik: {}'.format(score), True, (255, 255, 0))
+        self.text_05 = self.font_03.render('Punkty zycia: {}'.format(life_points), True,
+                                           (255, 255, 0))

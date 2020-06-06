@@ -8,8 +8,8 @@ class Player:
     def __init__(self, window_width=800, window_height=600):
         self.player_img = pygame.image.load("assets/millennium_falcon.png")
         self.player_size = {"x": 64, "y": 64}
-        self.position_x = int(window_width / 2 - self.player_size["x"] / 2)
-        self.position_y = int(window_height - self.player_size["y"] * 2)
+        self.position_x = window_width // 2 - self.player_size["x"] // 2
+        self.position_y = window_height - self.player_size["y"] * 2
         self.speed_x = 0
         self.speed_y = 0
         self.acceleration = 5 # przyspieszenie
