@@ -3,6 +3,7 @@ import pygame
 
 class Bullet:
     """Klasa definiująca pocisk wystrzeliwywany przez gracz."""
+    # pylint: disable=too-few-public-methods
 
     def __init__(self, player_position_x, player_position_y, player_size, speed=4):
         self.bullet_img = pygame.image.load("assets/bullet_01.png")

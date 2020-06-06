@@ -12,7 +12,7 @@ class Player:
         self.position_y = int(window_height - self.player_size["y"] * 2)
         self.speed_x = 0
         self.speed_y = 0
-        self.acceleration = 5 #przyspieszenie
+        self.acceleration = 5 # przyspieszenie
 
     def draw_player(self, game_board):
         """Metoda rysuje obiekt gracza na ekranie."""

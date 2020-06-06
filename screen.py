@@ -14,6 +14,7 @@ class Screen:
        Atrybuty klasy to: window_width, window_height, screen, icon, running, menu_running,
        closing_menu, score, life_points, fps, bullets, tie_fighters, number_of_tie_fighters,
        number_limit_of_tie_fighters."""
+    # pylint: disable=too-many-instance-attributes
 
     # Backgound
     def __init__(self):

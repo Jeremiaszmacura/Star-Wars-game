@@ -8,6 +8,7 @@ FONT_SIZE_H3 = 24
 
 class Text:
     """Klasa napisów na ekranie."""
+    # pylint: disable=too-few-public-methods, too-many-instance-attributes
 
     def __init__(self, window_width, window_height, score, life_points):
         self.font = pygame.font.Font('freesansbold.ttf', FONT_SIZE_H1)
