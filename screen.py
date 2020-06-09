@@ -66,9 +66,9 @@ class Screen:
         for j in reversed(to_del):
             del self.bullets[j]
 
-    def initiate_bullets(self, player_position_x, player_position_y, player_size):
+    def initiate_bullets(self, player_position_x, player_position_y):
         """Metoda inicjuje obiekty pocisków o obecnych koordynatach gracza."""
-        self.bullets.append(Bullet(player_position_x, player_position_y, player_size))
+        self.bullets.append(Bullet(player_position_x, player_position_y))
 
     def is_collision(self):
         """Metoda sprawdza czy doszło do kolizji pomiędzy pociskami, a wrogim myśliwcami"""

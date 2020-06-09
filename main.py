@@ -1,7 +1,7 @@
 """Moduł zawiera główne pętle programu."""
 import pygame
 
-from const import Assets
+from const import Consts, Assets
 from text import Text
 from player import Player
 from screen import Screen
@@ -20,7 +20,7 @@ def game_loop(ekran, tekst, clock, gracz, screen, background):
     """Funkcja zawiera główną pętlę rozgrywki."""
     while ekran.running:
         # klatkowanie
-        clock.tick(Assets.FPS)
+        clock.tick(Consts.FPS)
         # generowanie obiektow
         ekran.generate_tie_fighters()
         # kontrola klawiszy
@@ -55,16 +55,18 @@ def end_menu(ekran, tekst, screen, background):
         screen.blit(background, (0, 0))  # Background image
         ekran.closing_menu = ekran.menu_key_control()  # kontrola klawiatury
         screen.blit(tekst.text_06, tekst.text_rect_06)
+        screen.blit(tekst.text_07, tekst.text_rect_07)
+        screen.blit(tekst.text_08, tekst.text_rect_08)
         pygame.display.update()
 
 def main():
     """Funkcja main programu."""
     pygame.init()
-    screen = pygame.display.set_mode((Assets.WINDOW_WIDTH, Assets.WINDOW_HEIGHT))
+    screen = pygame.display.set_mode((Consts.WINDOW_WIDTH, Consts.WINDOW_HEIGHT))
     pygame.display.set_caption("Star Wars")  # nazwa gry
     pygame.display.set_icon(Assets.ICON)
-    background = pygame.transform.scale(Assets.BACKGROUND, (Assets.WINDOW_WIDTH,
-                                                            Assets.WINDOW_HEIGHT))
+    background = pygame.transform.scale(Assets.BACKGROUND, (Consts.WINDOW_WIDTH,
+                                                            Consts.WINDOW_HEIGHT))
     clock = pygame.time.Clock() # zegar do klatkowania
     ekran = Screen(screen)  # tworzenie okienka
     gracz = Player()  # tworzenie obiektu gracz

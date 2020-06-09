@@ -1,15 +1,15 @@
 """Moduł zawiera klasę Player."""
 import pygame
 
-from const import Assets
+from const import Consts, Assets
 
 class Player:
     """Klasa gracza zawiera metody potrzebne do rysowania obiektu gracza, zmiane jego koordynantów,
      ograniczenie ruchu, kontrole klawiatury (sterowanie)."""
 
     def __init__(self):
-        self.position_x = Assets.WINDOW_WIDTH // 2 - Assets.player_size["x"] // 2
-        self.position_y = Assets.WINDOW_HEIGHT - Assets.player_size["y"] * 2
+        self.position_x = Consts.WINDOW_WIDTH // 2 - Consts.PLAYER_WIDTH // 2
+        self.position_y = Consts.WINDOW_HEIGHT - Consts.PLAYER_HEIGHT * 2
         self.speed_x = 0
         self.speed_y = 0
 
@@ -26,10 +26,10 @@ class Player:
         """Metoda ogranicza przestrzeń, po której może się przemieszczać gracz."""
         if self.position_x <= 0:
             self.position_x = 0
-        elif self.position_x >= Assets.WINDOW_WIDTH -Assets.player_size["x"]:
-            self.position_x = Assets.WINDOW_WIDTH - Assets.player_size["x"]
-        if self.position_y >= Assets.WINDOW_HEIGHT - Assets.player_size["y"]:
-            self.position_y = Assets.WINDOW_HEIGHT - Assets.player_size["y"]
+        elif self.position_x >= Consts.WINDOW_WIDTH -Consts.PLAYER_WIDTH:
+            self.position_x = Consts.WINDOW_WIDTH - Consts.PLAYER_WIDTH
+        if self.position_y >= Consts.WINDOW_HEIGHT - Consts.PLAYER_HEIGHT:
+            self.position_y = Consts.WINDOW_HEIGHT - Consts.PLAYER_HEIGHT
         elif self.position_y <= 0:
             self.position_y = 0
 
@@ -42,15 +42,15 @@ class Player:
                 return False
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
-                    self.speed_x -= Assets.ACCELERATION
+                    self.speed_x -= Consts.ACCELERATION
                 if event.key == pygame.K_RIGHT:
-                    self.speed_x += Assets.ACCELERATION
+                    self.speed_x += Consts.ACCELERATION
                 if event.key == pygame.K_DOWN:
-                    self.speed_y += Assets.ACCELERATION
+                    self.speed_y += Consts.ACCELERATION
                 if event.key == pygame.K_UP:
-                    self.speed_y -= Assets.ACCELERATION
+                    self.speed_y -= Consts.ACCELERATION
                 if event.key == pygame.K_SPACE:
-                    ekran.initiate_bullets(self.position_x, self.position_y, Assets.player_size)
+                    ekran.initiate_bullets(self.position_x, self.position_y)
             if event.type == pygame.KEYUP:
                 if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
                     self.speed_x = 0
