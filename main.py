@@ -60,12 +60,11 @@ def end_menu(ekran, tekst, screen, background):
 def main():
     """Funkcja main programu."""
     pygame.init()
-
     screen = pygame.display.set_mode((Assets.WINDOW_WIDTH, Assets.WINDOW_HEIGHT))
     pygame.display.set_caption("Star Wars")  # nazwa gry
     pygame.display.set_icon(Assets.ICON)
-    background = pygame.transform.scale(Assets.BACKGROUND, (Assets.WINDOW_WIDTH, Assets.WINDOW_HEIGHT))
-
+    background = pygame.transform.scale(Assets.BACKGROUND, (Assets.WINDOW_WIDTH,
+                                                            Assets.WINDOW_HEIGHT))
     clock = pygame.time.Clock() # zegar do klatkowania
     ekran = Screen(screen)  # tworzenie okienka
     gracz = Player()  # tworzenie obiektu gracz
