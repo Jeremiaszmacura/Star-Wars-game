@@ -1,5 +1,6 @@
 """Moduł zawiera klasę Screen"""
 import math
+
 import pygame
 
 from tie_fighter import TieFighter
@@ -7,41 +8,21 @@ from bullet import Bullet
 
 class Screen:
     """Najbardziej obszerna klasa programu, która zawiera w sobie metody związane
-       z tłem ekranu, myśliwcami przeciwnika, pociskami, obsługą menu. Metodami tej klasy
-       są: konstruktor, set_background, drawing_background, generate_tie_fighters,
-       draw_tie_fighters, move_tie_fighters, move_limit_tie_fighters, draw_bullets,
-       initiate_bullets, is_collision, show_menu, menu_key_control, haveILost.
-       Atrybuty klasy to: window_width, window_height, screen, icon, running, menu_running,
-       closing_menu, score, life_points, fps, bullets, tie_fighters, number_of_tie_fighters,
-       number_limit_of_tie_fighters."""
+       z tłem ekranu, myśliwcami przeciwnika, pociskami, obsługą menu."""
     # pylint: disable=too-many-instance-attributes
 
     # Backgound
-    def __init__(self):
-        self.window_width = 800  # szerokosc okna
-        self.window_height = 800  # wysokosc okna
-        # generowanie ekranu gry
-        self.screen = pygame.display.set_mode((self.window_width, self.window_height))
-        pygame.display.set_caption("Star Wars") #nazwa gry
-        self.icon = pygame.image.load("assets/rebel-alliance.png")  # Ikona gry
-        pygame.display.set_icon(self.icon)
-        self.background = pygame.image.load("assets/night_sky_2.png")  # Backgorund
-        self.background = pygame.transform.scale(self.background, (self.window_width,
-                                                                   self.window_height))
+    def __init__(self, screen):
+        self.screen = screen
         self.running = True
         self.menu_running = True
         self.closing_menu = True
         self.score = 0
         self.life_points = 5
-        self.fps = 120
         self.bullets = []
         self.tie_fighters = []
         self.number_of_tie_fighters = 0
         self.number_limit_of_tie_fighters = 2
-
-    def drawing_background(self):
-        """Metoda rysuje tło ekranu"""
-        self.screen.blit(self.background, (0, 0))  # Background image
 
     # Tie Fighters
     def generate_tie_fighters(self):
@@ -71,7 +52,7 @@ class Screen:
     def move_limit_tie_fighters(self):
         """Metoda ogranicza pole po jakim mogą się przemieszczać wrogie mysliwce."""
         for i in range(len(self.tie_fighters)):
-            self.tie_fighters[i].move_limitation(self.window_width)
+            self.tie_fighters[i].move_limitation()
 
     # Bullets
     def draw_bullets(self):
@@ -108,17 +89,6 @@ class Screen:
             self.number_of_tie_fighters -= 1
         for j in reversed(to_del_bullets):
             del self.bullets[j]
-
-    # menu
-    def show_menu(self, tekst):
-        """Metoda rysuje napisy na ekranies startowego menu."""
-        self.screen.blit(tekst.text, tekst.text_rect)  # napisy poczatkowe
-        self.screen.blit(tekst.text_02, tekst.text_rect_02)
-        self.screen.blit(tekst.text_03, tekst.text_rect_03)
-
-    def show_closing_menu(self, tekst):
-        """Metoda rysuje napisy na ekranie końcowego menu."""
-        self.screen.blit(tekst.text_06, tekst.text_rect_06)
 
     def menu_key_control(self):
         """Metoda dodaje sterowanie menu przy pomocy przycisków klawiatury."""
