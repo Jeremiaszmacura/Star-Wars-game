@@ -1,6 +1,5 @@
 """Moduł zwiera klasę Tie_fighter (myśliwca)."""
 import random
-
 from const import Consts, Assets
 
 class TieFighter:

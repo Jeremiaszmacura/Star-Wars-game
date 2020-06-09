@@ -1,6 +1,5 @@
 """Moduł zawiera główne pętle programu."""
 import pygame
-
 from const import Consts, Assets
 from text import Text
 from player import Player

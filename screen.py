@@ -1,8 +1,6 @@
 """Moduł zawiera klasę Screen."""
 import math
-
 import pygame
-
 from tie_fighter import TieFighter
 from bullet import Bullet
 

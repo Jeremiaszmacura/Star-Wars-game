@@ -1,5 +1,4 @@
 """Moduł zawiera klasę Bullet."""
-
 from const import Consts, Assets
 
 class Bullet:
