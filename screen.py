@@ -1,4 +1,4 @@
-"""Moduł zawiera klasę Screen"""
+"""Moduł zawiera klasę Screen."""
 import math
 
 import pygame

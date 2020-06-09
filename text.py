@@ -1,4 +1,4 @@
-"""Moduł zaweira klasę Text"""
+"""Moduł zaweira klasę Text."""
 
 import pygame
 

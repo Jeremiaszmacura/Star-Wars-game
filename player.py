@@ -1,4 +1,4 @@
-"""Moduł zawiera klasę Player"""
+"""Moduł zawiera klasę Player."""
 import pygame
 
 from const import Assets

@@ -1,4 +1,4 @@
-"""Moduł zawiera klasę Bullet"""
+"""Moduł zawiera klasę Bullet."""
 
 from const import Assets
 

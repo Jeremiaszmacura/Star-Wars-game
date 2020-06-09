@@ -1,12 +1,10 @@
-"""Moduł zwiera klasę Tie_fighter (myśliwca)"""
+"""Moduł zwiera klasę Tie_fighter (myśliwca)."""
 import random
 
 from const import Assets
 
 class TieFighter:
-    """Klasa wrogich myśliwców. Metody klasy to: konstruktor, draw_tie_fighter, move_tie_figher,
-    move_limitation. Atrybutami klasy są: tie_fighter_img, tie_fighter_size, speed_x, speed_y,
-    position_x, position_y."""
+    """Klasa wrogich myśliwców."""
 
     def __init__(self, speed_x=2, speed_y=1):
         self.speed_x = speed_x
@@ -15,19 +13,19 @@ class TieFighter:
         self.position_y = 50 - Assets.tie_fighter_size["y"]
 
     def draw_tie_fighter(self, game_board):
-        """Funkcja rysuje obiekt myśliwa na ekranie"""
+        """Funkcja rysuje obiekt myśliwa na ekranie."""
         game_board.screen.blit(Assets.tie_fighter_img, (self.position_x, self.position_y))
         if self.position_y >= Assets.WINDOW_HEIGHT:
             return True
         return False
 
     def move_tie_fighter(self):
-        """Funkcja zmienia koordynaty obiektu myśliwca"""
+        """Funkcja zmienia koordynaty obiektu myśliwca."""
         self.position_x += self.speed_x
         self.position_y += self.speed_y
 
     def move_limitation(self):
-        """Funkcja oragnicze pole po którym może się poruszać obiekt myśliwca"""
+        """Funkcja oragnicze pole po którym może się poruszać obiekt myśliwca."""
         if self.position_x <= 0:
             self.speed_x *= -1
         elif self.position_x >= Assets.WINDOW_WIDTH - Assets.tie_fighter_size["x"]:

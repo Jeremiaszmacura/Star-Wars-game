@@ -1,8 +1,8 @@
-"""Moduł zawiera zasoby i stałe potrzebne do gry"""
+"""Moduł zawiera zasoby i stałe potrzebne do gry."""
 import pygame
 
 class Assets:
-    """Przechowuje zasoby graficzne"""
+    """Przechowuje zasoby graficzne."""
     # pylint: disable=too-few-public-methods
     MENU_FONT_COLOR = (255, 255, 0)
     FONT_SIZE_H1 = 64

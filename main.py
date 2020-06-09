@@ -1,4 +1,4 @@
-"""Moduł zawiera główne pętle programu"""
+"""Moduł zawiera główne pętle programu."""
 import pygame
 
 from const import Assets
@@ -7,7 +7,7 @@ from player import Player
 from screen import Screen
 
 def start_menu(ekran, tekst, screen, background):
-    """Funkcja zawiera pętle menu startowego"""
+    """Funkcja zawiera pętle menu startowego."""
     while ekran.menu_running:
         screen.blit(background, (0, 0))  # Background image
         screen.blit(tekst.text, tekst.text_rect)  # napisy poczatkowe
@@ -17,7 +17,7 @@ def start_menu(ekran, tekst, screen, background):
         pygame.display.update() # aktualizacja zmian pygame
 
 def game_loop(ekran, tekst, clock, gracz, screen, background):
-    """Funkcja zawiera główną pętlę rozgrywki"""
+    """Funkcja zawiera główną pętlę rozgrywki."""
     while ekran.running:
         # klatkowanie
         clock.tick(Assets.FPS)
@@ -49,7 +49,7 @@ def game_loop(ekran, tekst, clock, gracz, screen, background):
         pygame.display.update()
 
 def end_menu(ekran, tekst, screen, background):
-    """Funkcja zawiera pętlę końcowego menu"""
+    """Funkcja zawiera pętlę końcowego menu."""
 
     while ekran.closing_menu:
         screen.blit(background, (0, 0))  # Background image
@@ -58,7 +58,7 @@ def end_menu(ekran, tekst, screen, background):
         pygame.display.update()
 
 def main():
-    """Funkcja main programu"""
+    """Funkcja main programu."""
     pygame.init()
 
     screen = pygame.display.set_mode((Assets.WINDOW_WIDTH, Assets.WINDOW_HEIGHT))
