@@ -20,9 +20,12 @@ class Consts:
 class Assets:
     """Przechowuje zasoby graficzne."""
     # pylint: disable=too-few-public-methods
-    BACKGROUND = pygame.image.load("assets/night_sky_2.png")  # Backgorund
-    ICON = pygame.image.load("assets/rebel-alliance.png")  # Ikona gry
-    tie_fighter_img = pygame.image.load("assets/mysliwiec.png")
-    bullet_img = pygame.image.load("assets/bullet_01.png")
-    player_img = pygame.image.load("assets/millennium_falcon.png")
+
+    @classmethod
+    def load(cls):
+        cls.BACKGROUND = pygame.image.load("assets/night_sky_2.png")  # Backgorund
+        cls.ICON = pygame.image.load("assets/rebel-alliance.png")  # Ikona gry
+        cls.TIE_FIGHTER_IMG = pygame.image.load("assets/mysliwiec.png")
+        cls.BULLET_IMG = pygame.image.load("assets/bullet_01.png")
+        cls.PLAYER_IMG = pygame.image.load("assets/millennium_falcon.png")
 

@@ -1,4 +1,5 @@
 """Moduł zawiera główne pętle programu."""
+import time
 import pygame
 from const import Consts, Assets
 from text import Text
@@ -15,7 +16,7 @@ def start_menu(ekran, tekst, screen, background):
         ekran.menu_key_control()  # kontrola klawiatury
         pygame.display.update() # aktualizacja zmian pygame
 
-def game_loop(ekran, tekst, clock, gracz, screen, background):
+def game_loop(ekran, tekst, clock, gracz, screen, background, czas_rozgrywki, images):
     """Funkcja zawiera główną pętlę rozgrywki."""
     while ekran.running:
         # klatkowanie
@@ -26,13 +27,13 @@ def game_loop(ekran, tekst, clock, gracz, screen, background):
         ekran.running = gracz.key_control(ekran)
         # rysowanie na ekranie
         screen.blit(background, (0, 0))  # Background image
-        gracz.draw_player(ekran)
-        ekran.draw_tie_fighters()
+        gracz.draw_player(ekran, images)
+        ekran.draw_tie_fighters(images)
         # przemieszczanie sie
         gracz.move_player()
         ekran.move_tie_fighters()
         # pociski
-        ekran.draw_bullets()
+        ekran.draw_bullets(images)
         # ograniczenia ruchu
         gracz.move_limitation()
         ekran.move_limit_tie_fighters()
@@ -44,6 +45,7 @@ def game_loop(ekran, tekst, clock, gracz, screen, background):
         tekst.score_and_life_points(ekran.score, ekran.life_points)
         # warunki przegranej
         ekran.have_i_lost()
+        czas_rozgrywki = ekran.tie_fighter_accelerattion(czas_rozgrywki)
         # makes any new updates on the screen visible
         pygame.display.update()
 
@@ -61,18 +63,22 @@ def end_menu(ekran, tekst, screen, background):
 def main():
     """Funkcja main programu."""
     pygame.init()
+    images = Assets()
+    images.load()
     screen = pygame.display.set_mode((Consts.WINDOW_WIDTH, Consts.WINDOW_HEIGHT))
     pygame.display.set_caption("Star Wars")  # nazwa gry
-    pygame.display.set_icon(Assets.ICON)
-    background = pygame.transform.scale(Assets.BACKGROUND, (Consts.WINDOW_WIDTH,
+    pygame.display.set_icon(images.ICON)
+    background = pygame.transform.scale(images.BACKGROUND, (Consts.WINDOW_WIDTH,
                                                             Consts.WINDOW_HEIGHT))
     clock = pygame.time.Clock() # zegar do klatkowania
     ekran = Screen(screen)  # tworzenie okienka
     gracz = Player()  # tworzenie obiektu gracz
     tekst = Text(ekran.score, ekran.life_points)
+    czas_rozgrywki = time.time()
     start_menu(ekran, tekst, screen, background) # pętla menu start
-    game_loop(ekran, tekst, clock, gracz, screen, background) # pętla rozgrywki
+    game_loop(ekran, tekst, clock, gracz, screen, background, czas_rozgrywki, images) # pętla rozgrywki
     end_menu(ekran, tekst, screen, background) # pętla menu end
+
 
 if __name__ == '__main__':
     main()

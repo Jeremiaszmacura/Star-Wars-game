@@ -24,32 +24,32 @@ class Text:
         self.text_rect_03.center = (Consts.WINDOW_WIDTH // 2, Consts.WINDOW_HEIGHT //
                                     2 + Consts.FONT_SIZE_H3*2)
 
-        self.text_04 = self.font_03.render('Wynik: ' + str(score), True, (255, 255, 0))
+        self.text_04 = self.font_03.render('Wynik: ' + str(score), True, Consts.MENU_FONT_COLOR)
         self.text_rect_04 = self.text.get_rect()
         self.text_rect_04.center = (160, Consts.WINDOW_HEIGHT - Consts.FONT_SIZE_H3)
 
         self.text_05 = self.font_03.render('Punkty zycia: {}'.format(life_points),
-                                           True, (255, 255, 0))
+                                           True, Consts.MENU_FONT_COLOR)
         self.text_rect_05 = self.text.get_rect()
         self.text_rect_05.center = (160, Consts.WINDOW_HEIGHT)
 
-        self.text_06 = self.font_02.render('Przegrales, Twoj wynik to: {}'.format(life_points)
-                                           , True, (255, 255, 0))
+        self.text_06 = self.font_02.render('Przegrales, Twoj wynik to: {}'.format(score)
+                                           , True, Consts.MENU_FONT_COLOR)
         self.text_rect_06 = self.text_06.get_rect()
         self.text_rect_06.center = (Consts.WINDOW_WIDTH // 2, Consts.WINDOW_HEIGHT //
                                     2 - Consts.FONT_SIZE_H3*2)
 
-        self.text_07 = self.font_03.render('powtorz - wcisnij 3', True, (255, 255, 0))
+        self.text_07 = self.font_03.render('powtorz - wcisnij 3', True, Consts.MENU_FONT_COLOR)
         self.text_rect_07 = self.text_07.get_rect()
         self.text_rect_07.center = (Consts.WINDOW_WIDTH // 2, Consts.WINDOW_HEIGHT // 2)
 
-        self.text_08 = self.font_03.render('zamknij - wcisnij 4', True, (255, 255, 0))
+        self.text_08 = self.font_03.render('zamknij - wcisnij 4', True, Consts.MENU_FONT_COLOR)
         self.text_rect_08 = self.text_08.get_rect()
         self.text_rect_08.center = (Consts.WINDOW_WIDTH // 2, Consts.WINDOW_HEIGHT //
                                     2 + Consts.FONT_SIZE_H3*2)
 
     def score_and_life_points(self, score, life_points):
         """Metoda przypisuje treść napisom podczas rozgrywki."""
-        self.text_04 = self.font_03.render('Wynik: {}'.format(score), True, (255, 255, 0))
+        self.text_04 = self.font_03.render('Wynik: {}'.format(score), True, Consts.MENU_FONT_COLOR)
         self.text_05 = self.font_03.render('Punkty zycia: {}'.format(life_points), True,
-                                           (255, 255, 0))
+                                           Consts.MENU_FONT_COLOR)

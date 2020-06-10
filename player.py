@@ -1,6 +1,6 @@
 """Moduł zawiera klasę Player."""
 import pygame
-from const import Consts, Assets
+from const import Consts
 
 class Player:
     """Klasa gracza zawiera metody potrzebne do rysowania obiektu gracza, zmiane jego koordynantów,
@@ -12,9 +12,9 @@ class Player:
         self.speed_x = 0
         self.speed_y = 0
 
-    def draw_player(self, game_board):
+    def draw_player(self, game_board, images):
         """Metoda rysuje obiekt gracza na ekranie."""
-        game_board.screen.blit(Assets.player_img, (self.position_x, self.position_y))
+        game_board.screen.blit(images.PLAYER_IMG, (self.position_x, self.position_y))
 
     def move_player(self):
         """Metoda zmienia koordynanty gracza."""

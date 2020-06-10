@@ -1,19 +1,19 @@
 """Moduł zwiera klasę Tie_fighter (myśliwca)."""
 import random
-from const import Consts, Assets
+from const import Consts
 
 class TieFighter:
     """Klasa wrogich myśliwców."""
 
-    def __init__(self, speed_x=2, speed_y=1):
+    def __init__(self, speed_x, speed_y):
         self.speed_x = speed_x
         self.speed_y = speed_y
         self.position_x = random.randint(1, Consts.WINDOW_WIDTH - 1 - Consts.TIE_FIGHTER_WIDTH)
         self.position_y = 50 - Consts.TIE_FIGHTER_HEIGHT
 
-    def draw_tie_fighter(self, game_board):
+    def draw_tie_fighter(self, game_board, images):
         """Funkcja rysuje obiekt myśliwa na ekranie."""
-        game_board.screen.blit(Assets.tie_fighter_img, (self.position_x, self.position_y))
+        game_board.screen.blit(images.TIE_FIGHTER_IMG, (self.position_x, self.position_y))
         if self.position_y >= Consts.WINDOW_HEIGHT:
             return True
         return False

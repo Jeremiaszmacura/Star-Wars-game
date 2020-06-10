@@ -1,5 +1,6 @@
 """Moduł zawiera klasę Screen."""
 import math
+import time
 import pygame
 from tie_fighter import TieFighter
 from bullet import Bullet
@@ -21,20 +22,22 @@ class Screen:
         self.tie_fighters = []
         self.number_of_tie_fighters = 0
         self.number_limit_of_tie_fighters = 2
+        self.tie_fighter_speed_x = 2
+        self.tie_fighter_speed_y = 1
 
     # Tie Fighters
     def generate_tie_fighters(self):
         """Metoda generuje wrogie myśliwce i umieszcza je w tablicy tie_fighters."""
         while self.number_of_tie_fighters < self.number_limit_of_tie_fighters:
-            self.tie_fighters.append(TieFighter())
+            self.tie_fighters.append(TieFighter(self.tie_fighter_speed_x, self.tie_fighter_speed_y))
             self.number_of_tie_fighters += 1
 
-    def draw_tie_fighters(self):
+    def draw_tie_fighters(self, images):
         """Metoda rysuje wrogie myśliwce na ekranie."""
         to_del = []
         for i in range(len(self.tie_fighters)):
             # rysuje i przypisuje true/false do out_of_gameboard
-            out_of_gameboard = self.tie_fighters[i].draw_tie_fighter(self)
+            out_of_gameboard = self.tie_fighters[i].draw_tie_fighter(self, images)
             if out_of_gameboard:
                 to_del.append(i)
                 self.life_points -= 1
@@ -47,18 +50,26 @@ class Screen:
         for i in range(len(self.tie_fighters)):
             self.tie_fighters[i].move_tie_fighter()
 
+    def tie_fighter_accelerattion(self, currently_time):
+        """Przyśpierwszenie myśliwców wraz z czasem trwania rozgrywki."""
+        if time.time() - currently_time >= 10:
+            self.tie_fighter_speed_x += 1
+            self.tie_fighter_speed_y += 1
+            return currently_time + 10
+        return currently_time
+
     def move_limit_tie_fighters(self):
         """Metoda ogranicza pole po jakim mogą się przemieszczać wrogie mysliwce."""
         for i in range(len(self.tie_fighters)):
             self.tie_fighters[i].move_limitation()
 
     # Bullets
-    def draw_bullets(self):
+    def draw_bullets(self, images):
         """Metoda rysuje na ekranie pociski wystrzelone przez gracza."""
         to_del = []
         for i in range(len(self.bullets)):
             # rysuje i przypisuje true/false do out_of_gameboard
-            out_of_gameboard = self.bullets[i].draw_bullet(self)
+            out_of_gameboard = self.bullets[i].draw_bullet(self, images)
             if out_of_gameboard:
                 to_del.append(i)
         for j in reversed(to_del):
