@@ -12,6 +12,7 @@ class Screen:
 
     # Backgound
     def __init__(self, screen):
+        self.restart = False
         self.screen = screen
         self.running = True
         self.menu_running = True
@@ -50,13 +51,13 @@ class Screen:
         for i in range(len(self.tie_fighters)):
             self.tie_fighters[i].move_tie_fighter()
 
-    def tie_fighter_accelerattion(self, currently_time):
+    def tie_fighter_accelerattion(self, current_time):
         """Przyśpierwszenie myśliwców wraz z czasem trwania rozgrywki."""
-        if time.time() - currently_time >= 10:
+        if time.time() - current_time >= 10:
             self.tie_fighter_speed_x += 1
             self.tie_fighter_speed_y += 1
-            return currently_time + 10
-        return currently_time
+            return current_time + 10
+        return current_time
 
     def move_limit_tie_fighters(self):
         """Metoda ogranicza pole po jakim mogą się przemieszczać wrogie mysliwce."""
@@ -114,10 +115,11 @@ class Screen:
                 if event.key == pygame.K_2:
                     self.number_limit_of_tie_fighters = 3
                     self.menu_running = False
-                if event.key == pygame.K_3:
-                    self.menu_running = True
-                    self.running = True
-                    return True
+                # if event.key == pygame.K_3:
+                #     self.menu_running = True
+                #     self.running = True
+                #     self.restart = True
+                #     return False
                 if event.key == pygame.K_4:
                     self.closing_menu = False
                     return False

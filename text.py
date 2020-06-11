@@ -24,7 +24,8 @@ class Text:
         self.text_rect_03.center = (Consts.WINDOW_WIDTH // 2, Consts.WINDOW_HEIGHT //
                                     2 + Consts.FONT_SIZE_H3*2)
 
-        self.text_04 = self.font_03.render('Wynik: ' + str(score), True, Consts.MENU_FONT_COLOR)
+        self.text_04 = self.font_03.render('Wynik: {}'.format(score), True,
+                                           Consts.MENU_FONT_COLOR)
         self.text_rect_04 = self.text.get_rect()
         self.text_rect_04.center = (160, Consts.WINDOW_HEIGHT - Consts.FONT_SIZE_H3)
 
@@ -53,3 +54,8 @@ class Text:
         self.text_04 = self.font_03.render('Wynik: {}'.format(score), True, Consts.MENU_FONT_COLOR)
         self.text_05 = self.font_03.render('Punkty zycia: {}'.format(life_points), True,
                                            Consts.MENU_FONT_COLOR)
+
+    def end_menu_text(self, score):
+        """Metoda wyswietla zdobyte punkty na ekranie koncowym."""
+        self.text_06 = self.font_02.render('Przegrales, Twoj wynik to: {}'.format(score),
+                                           True, Consts.MENU_FONT_COLOR)

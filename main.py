@@ -54,10 +54,13 @@ def end_menu(ekran, tekst, screen, background):
 
     while ekran.closing_menu:
         screen.blit(background, (0, 0))  # Background image
-        ekran.closing_menu = ekran.menu_key_control()  # kontrola klawiatury
+        ekran.closing_menu = ekran.menu_key_control() # kontrola klawiatury
+        if ekran.restart == True:
+            main()
         screen.blit(tekst.text_06, tekst.text_rect_06)
-        screen.blit(tekst.text_07, tekst.text_rect_07)
+        #screen.blit(tekst.text_07, tekst.text_rect_07)
         screen.blit(tekst.text_08, tekst.text_rect_08)
+        tekst.end_menu_text(ekran.score)
         pygame.display.update()
 
 def main():
@@ -74,10 +77,18 @@ def main():
     ekran = Screen(screen)  # tworzenie okienka
     gracz = Player()  # tworzenie obiektu gracz
     tekst = Text(ekran.score, ekran.life_points)
-    czas_rozgrywki = time.time()
+    restart = False
     start_menu(ekran, tekst, screen, background) # pętla menu start
-    game_loop(ekran, tekst, clock, gracz, screen, background, czas_rozgrywki, images) # pętla rozgrywki
+    czas_rozgrywki = time.time()
+    # pętla rozgrywki
+    game_loop(ekran, tekst, clock, gracz, screen, background, czas_rozgrywki, images)
     end_menu(ekran, tekst, screen, background) # pętla menu end
+    if ekran.menu_running == True:
+        start_menu(ekran, tekst, screen, background)  # pętla menu start
+        czas_rozgrywki = time.time()
+        # pętla rozgrywki
+        game_loop(ekran, tekst, clock, gracz, screen, background, czas_rozgrywki, images)
+        end_menu(ekran, tekst, screen, background)  # pętla menu end
 
 
 if __name__ == '__main__':
