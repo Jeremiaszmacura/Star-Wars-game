@@ -64,7 +64,7 @@ def end_menu(ekran, tekst, screen, background):
         screen.blit(tekst.text_07, tekst.text_rect_07)
         screen.blit(tekst.text_08, tekst.text_rect_08)
         tekst.end_menu_text(ekran.score)
-        if ekran.restart == True:
+        if ekran.restart:
             main()
         pygame.display.update()
 
