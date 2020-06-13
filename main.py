@@ -6,6 +6,11 @@ from text import Text
 from player import Player
 from screen import Screen
 
+def clear(ekran):
+    """Funkcja czyści tablice."""
+    ekran.bullets.clear()
+    ekran.tie_fighters.clear()
+
 def start_menu(ekran, tekst, screen, background):
     """Funkcja zawiera pętle menu startowego."""
     while ekran.menu_running:
@@ -55,12 +60,12 @@ def end_menu(ekran, tekst, screen, background):
     while ekran.closing_menu:
         screen.blit(background, (0, 0))  # Background image
         ekran.closing_menu = ekran.menu_key_control() # kontrola klawiatury
-        if ekran.restart == True:
-            main()
         screen.blit(tekst.text_06, tekst.text_rect_06)
-        #screen.blit(tekst.text_07, tekst.text_rect_07)
+        screen.blit(tekst.text_07, tekst.text_rect_07)
         screen.blit(tekst.text_08, tekst.text_rect_08)
         tekst.end_menu_text(ekran.score)
+        if ekran.restart == True:
+            main()
         pygame.display.update()
 
 def main():
@@ -77,19 +82,12 @@ def main():
     ekran = Screen(screen)  # tworzenie okienka
     gracz = Player()  # tworzenie obiektu gracz
     tekst = Text(ekran.score, ekran.life_points)
-    restart = False
     start_menu(ekran, tekst, screen, background) # pętla menu start
     czas_rozgrywki = time.time()
     # pętla rozgrywki
     game_loop(ekran, tekst, clock, gracz, screen, background, czas_rozgrywki, images)
     end_menu(ekran, tekst, screen, background) # pętla menu end
-    if ekran.menu_running == True:
-        start_menu(ekran, tekst, screen, background)  # pętla menu start
-        czas_rozgrywki = time.time()
-        # pętla rozgrywki
-        game_loop(ekran, tekst, clock, gracz, screen, background, czas_rozgrywki, images)
-        end_menu(ekran, tekst, screen, background)  # pętla menu end
-
+    clear(ekran)
 
 if __name__ == '__main__':
     main()

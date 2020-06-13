@@ -115,11 +115,11 @@ class Screen:
                 if event.key == pygame.K_2:
                     self.number_limit_of_tie_fighters = 3
                     self.menu_running = False
-                # if event.key == pygame.K_3:
-                #     self.menu_running = True
-                #     self.running = True
-                #     self.restart = True
-                #     return False
+                if event.key == pygame.K_3:
+                    self.menu_running = True
+                    self.running = True
+                    self.restart = True
+                    return False
                 if event.key == pygame.K_4:
                     self.closing_menu = False
                     return False
