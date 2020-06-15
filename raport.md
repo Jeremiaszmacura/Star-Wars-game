@@ -33,8 +33,6 @@ requirements.txt, .gitignore, podrzebne assets oraz raport.md.
 #### Uwagi drobiazdowe
 * został zastosowany pylint,
 * zostały użyte instrukcje from ... import ...
-from const import Consts, Assets
-https://github.com/Jeremiaszmacura/pygame_star_wars_projekt/blob/81d96e95cd31bfdbf7de46ff39bbc71da7aecdee/main.py#L4
 * instrukcje import w odpowiedniej kolejności: standardowe, zewnętrzne, własne moduły,
 * program nie zawiera zmiennych globalnych,
 * stałe zostały umieszczone w module const.py, w klasie const,
