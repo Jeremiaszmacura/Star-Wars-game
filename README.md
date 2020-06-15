@@ -14,10 +14,8 @@
 * Po utracie wszystkich punktów życia główna pętla gry zostaje zatrzymana i pojawia się na ekranie zapytanie o rozpoczęcie nowej rozgrywki lub zakończenie działania programu.
 ### Testy
 <!-- UL-->
-* Wciśnięcie klawiszy: strzałka w prawo, strzałka w lewo, strzałka w górę, strzałka w dół, powodują odpowiednio: przesunięcie obiektu gracza w prawo (zwiększa wartości atrybutu position_x), przesunięcie obiektu gracz w lewo (zmniejszenie wartości atrybutu position_x), przesunięcie obiektu gracza w górę (zmniejszenie wartości atrybutu position_y), przesunięcie obiektu gracza w dół (zwiększenie wartości atrybutu position_y).
-* Wciśnięcie klawisza spacji powoduje wygenerowanie pocisku w miejscu obiektu gracza i nadanie mu prędkości w osi y.
-* Przy menu początkowym wciśnięcie klawisza 1 spowoduje wybranie łatwiejszego poziomu trudności. Wygenerowana zostanie odpowiednia liczba wrogich statków na ekranie i nadana  im zostanie początkowa prędkość z pierwszego zakresu. W przypadku wciśnięcia klawisza 2 analogicznie zostanie wygenerowana większa liczba wrogich myśliwców niż w przypadku pierwszym oraz zostanie im nadana prędkość początkowa z drugiego zakresu.
-* W momencie kolizji pomiędzy pociskiem wystrzelonym przez gracza, a wrogim statkiem następuje zwiększenie ilości zdobytych punktów o jeden, dane obiekty: myśliwiec i pocisk, są usuwane z tablicy obiektów. Powoduje to, że nie są one już więcej rysowane na ekranie, a zniszczony myśliwiec udostępnia miejsce w tablicy myśliwcu kolejnemu, który zostaje wygenerowany w odpowiedni sposób na ekranie.
-* W momencie przekroczenia linii obrony (górne ograniczenie osi y, dół ekranu) przez wrogi statek liczba punktów życia zmniejsza się o jeden, a myśliwiec jest usuwany z tablicy myśliwców.
-* Gdy liczba punktów będzie mniejsza bądź równa zero, pojawi się komunikat o przegranej rozgrywce, informujący użytkownika o liczbie zdobytych punktów.
-* Podczas wyświetlania się ekranu informującego o końcu rozgrywki, wciśnięcie klawisza enter spowoduje przekierowanie do ekranu startowego i możliwości ponownego przeprowadzenia rozgrywki. W przypadku wciśnięcia klawisz esc nastąpi zakończenie programu.
+##### Test Modułu screen:
+* spadek punktów życia do wartości 0 lub mniejszej powoduje przerwanie głównej pętli rozgrywki, przypisanie wartości false do zmiennej running,
+* generowane obiekty talblicy tie_fighters są instancjami klasy Tie_fighter,
+* mysliwce przeciwnika wraz z upływem każdych kolejneych dziesięciu sekund przyśpieszają o jedną jednoskę,
+* funckja obliczająca okresy dziesięciu sekund działa w sposób poprawny i po upływie dziesięciu sekund dodaje taką wartość do zmiennej czasu w funkcji main.
