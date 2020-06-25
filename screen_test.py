@@ -43,18 +43,18 @@ class ScreenTest(unittest.TestCase):
         """Check losing condition"""
         self.ekran.life_points = 5
         self.ekran.have_i_lost()
-        self.assertEqual(self.ekran.running, True)
+        self.assertTrue(self.ekran.running)
         self.ekran.life_points = 0
         self.ekran.have_i_lost()
-        self.assertEqual(self.ekran.running, False)
+        self.assertFalse(self.ekran.running)
         self.ekran.life_points = -5
         self.ekran.have_i_lost()
-        self.assertEqual(self.ekran.running, False)
+        self.assertFalse(self.ekran.running)
 
     def test_generate_tie_fighters(self):
         """Check is objects are generating properly"""
         self.ekran.generate_tie_fighters()
-        self.assertEqual(isinstance(self.ekran.tie_fighters[0], TieFighter), True)
+        self.assertTrue(isinstance(self.ekran.tie_fighters[0], TieFighter))
 
 if __name__ == '__main__':
     unittest.main()
