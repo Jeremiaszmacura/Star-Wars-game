@@ -2,7 +2,12 @@
 ## Star Wars Shooter
 <!-- Links -->
 #### Jeremiasz Macura
+<br /> <br />
+
 ![game-window](assets/gameplay_window.PNG)
+
+<br /> <br />
+
 ### Opis
 <!-- UL -->
 * The home screen shows the title of the game and asks you to select the difficulty level,
