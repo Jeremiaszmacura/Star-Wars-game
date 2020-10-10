@@ -2,7 +2,7 @@
 ## Star Wars Shooter
 <!-- Links -->
 #### Jeremiasz Macura
-![selected-labels-img](assets/gameplay_window.PNG)
+![game-window](assets/gameplay_window.PNG)
 ### Opis
 <!-- UL -->
 * The home screen shows the title of the game and asks you to select the difficulty level,
@@ -17,7 +17,7 @@
  with the duration of the game, enemy fighters start to accelerate, which makes it difficult for us to shoot them down,
 * The condition for losing is the loss of life points. The number of health points is given to the player adequately
 to the selected difficulty level. The loss of such a point is caused by crossing our line of defense
- (górnego ograniczenia osi y - dół ekranu) by enemy spaceship,
+ (y-axis upper limit - bottom of screen) by enemy spaceship,
 * The ship is controlled using the keyboard buttons on the keyboard that allow you to move around
 in all directions and firing missiles at enemy ships (arrow keys, space bar key),
 * When you lose all your hitpoints, the main game loop stops and a prompt appears on the screen
@@ -25,8 +25,8 @@ in all directions and firing missiles at enemy ships (arrow keys, space bar key)
 ### Testy
 <!-- UL-->
 ##### Test Modułu screen:
-* spadek punktów życia do wartości 0 lub mniejszej powoduje przerwanie głównej pętli rozgrywki, przypisanie wartości 
-false do zmiennej running,
+* dropping health points to 0 or less breaks the main gameplay loop, assigning a value
+false to the running variable,
 * the generated tie_fighters objects are instances of the Tie_fighter class,
 * enemy fighters speed up one unit with each subsequent ten seconds,
 * the function for calculating ten second periods works fine and after ten seconds it adds one
