@@ -1,4 +1,4 @@
-"""Moduł zawiera testy jednostowe modułu screen.py."""
+"""The module contains unit tests of the screen.py module."""
 import time
 import unittest
 import pygame
@@ -7,10 +7,10 @@ from tie_fighter import TieFighter
 from const import Consts
 
 class ScreenTest(unittest.TestCase):
-    """Klasa zawiera testy jednostowe modułu screen.py."""
+    """The class contains unit tests for the screen.py module."""
 
     def setUp(self):
-        """Inicjalizuje zasoby potrzebne do przeprowadzenia testów."""
+        """Initializes the resources needed to run tests."""
         self.screen = pygame.display.set_mode((Consts.WINDOW_WIDTH, Consts.WINDOW_HEIGHT))
         self.ekran = Screen(self.screen)
 

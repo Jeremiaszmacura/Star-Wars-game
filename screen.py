@@ -1,4 +1,4 @@
-"""Moduł zawiera klasę Screen."""
+"""The module contains the Screen class."""
 import math
 import time
 import pygame
@@ -6,8 +6,8 @@ from tie_fighter import TieFighter
 from bullet import Bullet
 
 class Screen:
-    """Najbardziej obszerna klasa programu, która zawiera w sobie metody związane
-       z tłem ekranu, myśliwcami przeciwnika, pociskami, obsługą menu."""
+    """The most extensive class of a program that includes related methods
+       with screen background, enemy fighters, missiles, menu operation."""
     # pylint: disable=too-many-instance-attributes
 
     # Backgound
@@ -28,16 +28,16 @@ class Screen:
 
     # Tie Fighters
     def generate_tie_fighters(self):
-        """Metoda generuje wrogie myśliwce i umieszcza je w tablicy tie_fighters."""
+        """The method generates enemy tie fighters and places them in the tie_fighters array."""
         while self.number_of_tie_fighters < self.number_limit_of_tie_fighters:
             self.tie_fighters.append(TieFighter(self.tie_fighter_speed_x, self.tie_fighter_speed_y))
             self.number_of_tie_fighters += 1
 
     def draw_tie_fighters(self, images):
-        """Metoda rysuje wrogie myśliwce na ekranie."""
+        """The method draws enemy fighters on the screen."""
         to_del = []
         for i in range(len(self.tie_fighters)):
-            # rysuje i przypisuje true/false do out_of_gameboard
+            # draw and assign true/false to out_of_gameboard
             out_of_gameboard = self.tie_fighters[i].draw_tie_fighter(self, images)
             if out_of_gameboard:
                 to_del.append(i)
@@ -47,12 +47,12 @@ class Screen:
             self.number_of_tie_fighters -= 1
 
     def move_tie_fighters(self):
-        """Metoda zmienia koordynaty wrogich myśliwców."""
+        """The method changes the coordinates of enemy fighters."""
         for i in range(len(self.tie_fighters)):
             self.tie_fighters[i].move_tie_fighter()
 
     def tie_fighter_accelerattion(self, current_time):
-        """Przyśpierwszenie myśliwców wraz z czasem trwania rozgrywki."""
+        """Acceleration of tie fighters along with the duration of the game."""
         if time.time() - current_time >= 10:
             self.tie_fighter_speed_x += 1
             self.tie_fighter_speed_y += 1
@@ -60,13 +60,13 @@ class Screen:
         return current_time
 
     def move_limit_tie_fighters(self):
-        """Metoda ogranicza pole po jakim mogą się przemieszczać wrogie mysliwce."""
+        """The method limits the field on which enemy tie fighters can move."""
         for i in range(len(self.tie_fighters)):
             self.tie_fighters[i].move_limitation()
 
     # Bullets
     def draw_bullets(self, images):
-        """Metoda rysuje na ekranie pociski wystrzelone przez gracza."""
+        """The method draws projectiles fired by the player on the screen."""
         to_del = []
         for i in range(len(self.bullets)):
             # rysuje i przypisuje true/false do out_of_gameboard
@@ -77,11 +77,11 @@ class Screen:
             del self.bullets[j]
 
     def initiate_bullets(self, player_position_x, player_position_y):
-        """Metoda inicjuje obiekty pocisków o obecnych koordynatach gracza."""
+        """The method initializes missile objects with the player's current coordinates."""
         self.bullets.append(Bullet(player_position_x, player_position_y))
 
     def is_collision(self):
-        """Metoda sprawdza czy doszło do kolizji pomiędzy pociskami, a wrogim myśliwcami"""
+        """The method checks if there was a collision between missiles and enemy fighters."""
         to_del_tie_fighters = []
         to_del_bullets = []
         for i in range(len(self.tie_fighters)):
@@ -101,7 +101,7 @@ class Screen:
             del self.bullets[j]
 
     def menu_key_control(self):
-        """Metoda dodaje sterowanie menu przy pomocy przycisków klawiatury."""
+        """The method adds menu control with keyboard buttons."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.menu_running = False
@@ -126,6 +126,6 @@ class Screen:
         return True
 
     def have_i_lost(self):
-        """Metoda sprawdza czy został spełniony warunek przegranej."""
+        """The method checks whether the failure condition has been met."""
         if self.life_points <= 0:
             self.running = False

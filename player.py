@@ -1,10 +1,10 @@
-"""Moduł zawiera klasę Player."""
+"""The module contains the Player class."""
 import pygame
 from const import Consts
 
 class Player:
-    """Klasa gracza zawiera metody potrzebne do rysowania obiektu gracza, zmiane jego koordynantów,
-     ograniczenie ruchu, kontrole klawiatury (sterowanie)."""
+    """The player's class contains the methods needed to draw a player's object, change its coordinates,
+     movement restriction, keyboard controls (controls)."""
 
     def __init__(self):
         self.position_x = Consts.WINDOW_WIDTH // 2 - Consts.PLAYER_WIDTH // 2
@@ -13,19 +13,19 @@ class Player:
         self.speed_y = 0
 
     def draw_player(self, game_board, images):
-        """Metoda rysuje obiekt gracza na ekranie."""
+        """The method draws the player's object on the screen."""
         game_board.screen.blit(images.PLAYER_IMG, (self.position_x, self.position_y))
 
     def move_player(self):
-        """Metoda zmienia koordynanty gracza."""
+        """The method changes the player's coordinates."""
         self.position_x += self.speed_x
         self.position_y += self.speed_y
 
     def move_limitation(self):
-        """Metoda ogranicza przestrzeń, po której może się przemieszczać gracz."""
+        """The method limits the space on which the player can move."""
         if self.position_x <= 0:
             self.position_x = 0
-        elif self.position_x >= Consts.WINDOW_WIDTH -Consts.PLAYER_WIDTH:
+        elif self.position_x >= Consts.WINDOW_WIDTH - Consts.PLAYER_WIDTH:
             self.position_x = Consts.WINDOW_WIDTH - Consts.PLAYER_WIDTH
         if self.position_y >= Consts.WINDOW_HEIGHT - Consts.PLAYER_HEIGHT:
             self.position_y = Consts.WINDOW_HEIGHT - Consts.PLAYER_HEIGHT
@@ -34,7 +34,7 @@ class Player:
 
     # key control
     def key_control(self, ekran):
-        """Metoda obsługuję sterowani,e przy pomocy klawiatury, obiektem gracza."""
+        """The method supports the control of the player's object using the keyboard."""
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 ekran.closing_menu = False

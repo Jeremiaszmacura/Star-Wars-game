@@ -2,20 +2,32 @@
 ## Star Wars Shooter
 <!-- Links -->
 #### Jeremiasz Macura
-[Star Wars Shooter on github](https://github.com/Jeremiaszmacura/pygame_star_wars_projekt)
+![selected-labels-img](assets/gameplay_window.PNG)
 ### Opis
 <!-- UL -->
-* Ekran początkowy zawiera napis przedstawiający tytuł gry oraz prosi o wybór poziomu trudności.
-* W zależności od wyboru poziomu trudności zostaje na ekranie wygenerowana odpowiednia ilość wrogich statków kosmicznych (myśliwców imperium), które również w zależności od poziomu trudności posiadają różne początkowe prędkości w osi x oraz osi y.
-* Wrogie myśliwce generowane są w losowych pozycjach na osi x oraz ustalonej pozycji na osi y, przy dolnym ograniczeniu osi y, tak aby dawały efekt nadlatywania od góry ekranu w stronę naszego okrętu (którym jest Sokół Millennium), który to generowany jest w połowie osi x i przy górnym ograniczeniu osi y (na dole ekranu rozgrywki).
-* Celem gry jest osiągnięcie jak najwyższego wyniku punktowego (punkt = eliminacja wrogiego statku) przy czym wraz z czasem trwania rozgrywki, wrogie myśliwce zaczynają przyspieszać, co utrudnia nam ich zestrzelenie, jak i również zwiększa się liczba generowanych wrogich statków.
-* Warunkiem przegranej jest utrata punktów życia. Liczba punktów życia jest nadawana graczowi w sposób adekwatny do wybranego przezeń poziomu trudności. Utrata takiego punktu jest wywołana na skutek przekroczenia naszej linii obrony (górnego ograniczenia osi y - dół ekranu) przez myśliwca.
-* Sterowanie statkiem gracza odbywa się za pomocą odpowiednich przycisków na klawiaturze, które umożliwiają poruszanie się we wszystkich kierunkach oraz strzelanie pociskami we wrogie okręty (arrow keys, space bar key).
-* Po utracie wszystkich punktów życia główna pętla gry zostaje zatrzymana i pojawia się na ekranie zapytanie o rozpoczęcie nowej rozgrywki lub zakończenie działania programu.
+* The home screen shows the title of the game and asks you to select the difficulty level,
+* Depending on the selected difficulty level, the appropriate number of enemy spaceships is generated on the screen
+ (Tie Fighters), which also, depending on the level of difficulty, have different initial speeds along the x-axis and
+  y axis,
+* Enemy fighters are generated in random positions on the x axis and a fixed position on the y axis, with the lower limit
+ y axis so that they give the effect of coming from the top of the screen towards our ship 
+ (which is the Millennium Falcon), which this is generated on the half of the x axis and at the upper 
+ y-axis limit (at the bottom of the gameplay screen),
+* The goal of the game is to achieve the highest possible score (point = elimination of the enemy ship),
+ with the duration of the game, enemy fighters start to accelerate, which makes it difficult for us to shoot them down,
+* The condition for losing is the loss of life points. The number of health points is given to the player adequately
+to the selected difficulty level. The loss of such a point is caused by crossing our line of defense
+ (górnego ograniczenia osi y - dół ekranu) by enemy spaceship,
+* The ship is controlled using the keyboard buttons on the keyboard that allow you to move around
+in all directions and firing missiles at enemy ships (arrow keys, space bar key),
+* When you lose all your hitpoints, the main game loop stops and a prompt appears on the screen
+ o starting a new game or ending the program.
 ### Testy
 <!-- UL-->
 ##### Test Modułu screen:
-* spadek punktów życia do wartości 0 lub mniejszej powoduje przerwanie głównej pętli rozgrywki, przypisanie wartości false do zmiennej running,
-* generowane obiekty talblicy tie_fighters są instancjami klasy Tie_fighter,
-* mysliwce przeciwnika wraz z upływem każdych kolejneych dziesięciu sekund przyśpieszają o jedną jednoskę,
-* funckja obliczająca okresy dziesięciu sekund działa w sposób poprawny i po upływie dziesięciu sekund dodaje taką wartość do zmiennej czasu w funkcji main.
+* spadek punktów życia do wartości 0 lub mniejszej powoduje przerwanie głównej pętli rozgrywki, przypisanie wartości 
+false do zmiennej running,
+* the generated tie_fighters objects are instances of the Tie_fighter class,
+* enemy fighters speed up one unit with each subsequent ten seconds,
+* the function for calculating ten second periods works fine and after ten seconds it adds one
+ value to the time variable in the function main.
