@@ -2,10 +2,6 @@
 ## Star Wars Shooter
 <!-- Links -->
 #### Jeremiasz Macura
-
-<!-- UL -->
-![game-window](assets/gameplay_window.PNG)
-
 ### Opis
 <!-- UL -->
 * The home screen shows the title of the game and asks you to select the difficulty level,
@@ -34,3 +30,5 @@ false to the running variable,
 * enemy fighters speed up one unit with each subsequent ten seconds,
 * the function for calculating ten second periods works fine and after ten seconds it adds one
  value to the time variable in the function main.
+ 
+ ![game-window](assets/gameplay_window.PNG)
