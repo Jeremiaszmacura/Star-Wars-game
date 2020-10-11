@@ -3,7 +3,7 @@
 <!-- Links -->
 #### Jeremiasz Macura
 
- ![game-window](assets/gameplay_window.png)
+ ![game-window](assets/gameplay_window.jpg)
 
 ### Opis
 <!-- UL -->
