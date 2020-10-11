@@ -2,11 +2,9 @@
 ## Star Wars Shooter
 <!-- Links -->
 #### Jeremiasz Macura
-<br /> <br />
 
+<!-- UL -->
 ![game-window](assets/gameplay_window.PNG)
-
-<br /> <br />
 
 ### Opis
 <!-- UL -->
