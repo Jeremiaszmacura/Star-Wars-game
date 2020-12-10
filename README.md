@@ -5,7 +5,7 @@
 
  ![game-window](assets/gameplay_window.PNG)
 
-### Opis
+### Description
 <!-- UL -->
 * The home screen shows the title of the game and asks you to select the difficulty level,
 * Depending on the selected difficulty level, the appropriate number of enemy spaceships is generated on the screen
@@ -24,7 +24,7 @@ to the selected difficulty level. The loss of such a point is caused by crossing
 in all directions and firing missiles at enemy ships (arrow keys, space bar key),
 * When you lose all your hitpoints, the main game loop stops and a prompt appears on the screen
  o starting a new game or ending the program.
-### Testy
+### Unit tests
 <!-- UL-->
 ##### Test Modułu screen:
 * dropping health points to 0 or less breaks the main gameplay loop, assigning a value
