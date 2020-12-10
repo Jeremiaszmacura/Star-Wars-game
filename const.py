@@ -2,7 +2,7 @@
 import pygame
 
 class Consts:
-    """Keeps constant."""
+    """Keeps constant values."""
     # pylint: disable=too-few-public-methods
     MENU_FONT_COLOR = (255, 255, 0)
     FONT_SIZE_H1 = 64
