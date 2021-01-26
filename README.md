@@ -26,7 +26,7 @@ in all directions and firing missiles at enemy ships (arrow keys, space bar key)
  o starting a new game or ending the program.
 ### Unit tests
 <!-- UL-->
-##### Test Modułu screen:
+##### Test Screen Module:
 * dropping health points to 0 or less breaks the main gameplay loop, assigning a value
 false to the running variable,
 * the generated tie_fighters objects are instances of the Tie_fighter class,
